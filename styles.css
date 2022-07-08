@@ -1,0 +1,9 @@
+#patrat {
+  height: 50px;
+  width: 50px;
+  background-color: red;
+}
+
+* {
+  zoom: 1.2;
+}
