@@ -58,7 +58,7 @@ const returneazaHintAleatorBazatPeAnimal = (animal) => {
   }
 }
 
-const PREFIX_HINT = "Hint: ";
+const PREFIX_HINT = "Hint: \n ";
 const animalAleator = returneazaElementAleatorDinArray(animale);
 
 
