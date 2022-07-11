@@ -4,23 +4,34 @@ const input = document.getElementById("input");
 const labelMaiIncearca = document.getElementById("maiIncearca");
 
 // Definim un array cu fructe, fiecare fruct fiind cuvantul pe care dorim sa il ghicim
-const fructe = ["mere", "pere", "prune"];
+const animale = ["caine", "pisica", "porc", "sarpe"];
 
 // Hinturi pentru fiecare fruct
-const hinturiMere = [
-  "Sunt rotunde si au culori multiple.",
-  "Sunt facute de mar",
+const hinturiCaine = [
+  "Omul ii este cel mai bun prieten!",
+  "Ii place sa manance oase!", 
+  "Apara gospodaria omului!",
 ];
 
-const hinturiPere = [
-  "Sunt neregulate ca forma si au culori multiple.",
-  "Sunt facute de par",
+const hinturiPisica = [
+  "Este un animal agil!",
+  "Are gheare ascutite!",
+  "Vaneaza soareci!",
+  "Stie sa se furiseze!",
 ];
 
-const hinturiPrune = [
-  "Sunt ovale si de obicei sunt mov.",
-  "Sunt facute de prun",
+const hinturiPorc = [
+  "Animal crescut pentru carnea sa!",
+  "Animal taiat de Craciun!" ,
+  "Coada sa arata ca un tirbuson!",
+]
+const hinturiSarpe = [
+  "Reptila cu solzi, fara membre!",
+  "Reptila care nu isi mesteca hrana!",
+  "Reptila care poate fi veninoasa!",
 ];
+
+
 
 const returneazaElementAleatorDinArray = (array) => {
   const random = Math.random();
@@ -35,36 +46,64 @@ const returneazaElementAleatorDinArray = (array) => {
   return array[indiceAleator]; // selectam elementul in functie de indicele aleator
 };
 
-const returneazaHintAleatorBazatPeFruct = (fruct) => {
-  if (fruct === "mere") {
-    return returneazaElementAleatorDinArray(hinturiMere);
-  } else if (fruct === "pere") {
-    return returneazaElementAleatorDinArray(hinturiPere);
-  } else if (fruct === "prune") {
-    return returneazaElementAleatorDinArray(hinturiPrune);
+const returneazaHintAleatorBazatPeAnimal = (animal) => {
+  if (animal === "caine") {
+    return returneazaElementAleatorDinArray(hinturiCaine);
+  } else if (animal === "pisica") {
+    return returneazaElementAleatorDinArray(hinturiPisica);
+  } else if (animal === "porc") {
+    return returneazaElementAleatorDinArray(hinturiPorc);
+  } else if (animal === "sarpe") {
+    return returneazaElementAleatorDinArray(hinturiSarpe)
   }
-};
+}
 
 const PREFIX_HINT = "Hint: ";
-const fructAleator = returneazaElementAleatorDinArray(fructe);
+const animalAleator = returneazaElementAleatorDinArray(animale);
+
+
+
+
+ const returneazaHinturiBazatePeAnimal = (animal) => {
+  if (animal === "caine") {
+    return hinturiCaine.join('\n');
+  } else if (animal === "pisica") {
+    return hinturiPisica.join('\n');
+  } else if (animal === "porc") {
+    return hinturiPorc.join('\n');
+  } else if (animal === "sarpe") {
+    return hinturiSarpe.join('\n');
+  }
+} 
+
 
 const verificaRaspuns = () => {
   const raspuns = input.value; // luam valoarea din input field
 
-  if (raspuns.toLowerCase() === fructAleator.toLowerCase()) {
+  if (raspuns.toLowerCase() === animalAleator.toLowerCase()) {
     alert("Ai castigat!");
-
+    
     // Din moment ce am castigat, putem reseta valorile campurilor pentru a juca in continuare
     input.value = "";
     labelMaiIncearca.textContent = "";
+    
+    window.location.reload();
 
-    // TODO: Ar fi super sa se reseteze tipul de fruct si hinturile acestuia dupa ce am castigat
-    // TODO: Reset fruct si hint
   } else {
     labelMaiIncearca.textContent = "Ai gresit! Mai incearca!";
-    // TODO: Reset hint
+     // labelHint.textContent= PREFIX_HINT + returneazaHintAleatorBazatPeAnimal(animalAleator);
+    labelHint.textContent= PREFIX_HINT +  returneazaHinturiBazatePeAnimal(animalAleator);
+    
+    
+     // setTimeout(function(){
+    // window.location.reload();
+    // }, 2500);
+
   }
+
 };
+
+
 
 const clickEvent = () => {
   verificaRaspuns();
@@ -77,10 +116,12 @@ const keyDownEvent = (event) => {
   }
 };
 
+
+
 // Adaugam un listener (o metoda ce e apelata) pentru un eveniment. Pentru buton am ales evenimentul click
 buttonGhicest.addEventListener("click", clickEvent);
 // Adaugam un listener (o metoda ce e apelata) pentru un eveniment. Pentru input am ales evenimentul keydown, care se refera la apasarea oricarei taste
 input.addEventListener("keydown", keyDownEvent);
 // Rescriem textul din label pentru fiecare hint
 labelHint.textContent =
-  PREFIX_HINT + returneazaHintAleatorBazatPeFruct(fructAleator);
+  PREFIX_HINT + returneazaHintAleatorBazatPeAnimal(animalAleator);

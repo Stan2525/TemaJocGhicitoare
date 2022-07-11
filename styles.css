@@ -1,9 +1,150 @@
-#patrat {
-  height: 50px;
-  width: 50px;
-  background-color: red;
+* {
+  zoom: 1.06;
 }
 
-* {
-  zoom: 1.2;
+
+html { 
+  font-family: 'Noto Sans', sans-serif;
+  color: white;
+  text-shadow: 2px 2px 7px rgba(0,0,0,0.76);
+  background: url(./res/chris-nguyen-lbmrrNgq2lo-unsplash.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
+
+/* .size {
+  width: 470px;
+} */
+
+h1 {
+  text-align: center;
+  border: 2px solid white;
+  border-radius: 8px;
+  box-shadow: 5px 5px 16px 4px rgba(0,0,0,0.41);
+  padding: 10px;
+  font-size: 40px;
+  
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  
+}
+
+.align {
+  text-align: center;
+}
+
+
+.margin {
+  margin-top: 20px;
+  
+}
+
+.block {
+  display:flex;
+  justify-content: center;
+  width: 355px;
+}
+
+
+
+#maiIncearca {
+  display:flex;
+  justify-content: center;
+  margin-top: 20px;
+  font-weight: bold;
+  color: black;
+  font-size: 30px;
+}
+
+#input {
+  border-radius: 4px;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  margin-right: 30px;
+}
+
+#ghiceste {
+  border-radius: 8px;
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
+  padding: 4px;
+  box-shadow: 5px 5px 16px 4px rgba(0,0,0,0.41);
+  text-shadow: 2px 2px 7px rgba(0,0,0,0.76);
+}
+
+
+
+/* Un alt tip de animatie! */
+
+.color-change-5x {
+	-webkit-animation: color-change-5x 8s linear infinite alternate both;
+	        animation: color-change-5x 8s linear infinite alternate both;
+}
+
+@-webkit-keyframes color-change-5x {
+  0% {
+    color: #19dcea;
+  }
+  25% {
+    color: #b22cff;
+  }
+  50% {
+    color: #ea2222;
+  }
+  75% {
+    color: #f5be10;
+  }
+  100% {
+    color: #3bd80d;
+  }
+}
+@keyframes color-change-5x {
+  0% {
+    color: #19dcea;
+  }
+  25% {
+    color: #b22cff;
+  }
+  50% {
+    color: #ea2222;
+  }
+  75% {
+    color: #f5be10;
+  }
+  100% {
+    color: #3bd80d;
+  }
+}
+
+#hint {
+  white-space: pre-line;
+}
+
+.plm {
+  margin-top: 44px;
+  margin-left: 10px;
+
+}
+
+/* .up-down {
+  margin-top: 50px;
+  margin-left: 20px;
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+  0% { transform: translate(0,  0px); }
+  50%  { transform: translate(0, 15px); }
+  100%   { transform: translate(0, -0px); }   
+} */
